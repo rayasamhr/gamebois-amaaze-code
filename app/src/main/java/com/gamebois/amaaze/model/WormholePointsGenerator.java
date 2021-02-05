@@ -1,7 +1,8 @@
-package com.gamebois.amaaze.view.createmaze;
+package com.gamebois.amaaze.model;
 
 import android.graphics.Path;
 import android.graphics.PointF;
+import android.util.Log;
 
 import com.gamebois.amaaze.BuildConfig;
 
@@ -40,10 +41,10 @@ public class WormholePointsGenerator {
         while (numOfWormholes > wormholePoints.size()) {
             float rand_x = (float) rand.nextGaussian();
             float rand_y = (float) rand.nextGaussian();
-
+            //why 0.2f and 0.3f?
             float point_x = centerOfScreen_x + (rand_x * wormholeRealmLength * 0.2f);
             float point_y = centerOfScreen_y + (rand_y * wormholeRealmLength * 0.3f);
-            
+
             if ((point_x + radius) > screen_width || (point_x - radius) < 0 || (point_y + radius) > screen_height || (point_y - radius) < 0) {
                 continue;
             }
@@ -62,6 +63,7 @@ public class WormholePointsGenerator {
 
     private boolean isAcceptablePoint(Path potentialWormhole) {
         boolean acceptable = true;
+        Log.d("WormholePointsGenerator", "The number of paths is" + pathList.size());
         for (Path contour : pathList) {
             Path path = new Path();
             path.op(contour, potentialWormhole, Path.Op.INTERSECT);

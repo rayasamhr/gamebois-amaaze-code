@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/colorSecondary"
-    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-    app:titleTextColor="@color/textOnSecondary" />
+    app:navigationIcon="@drawable/shr_menu"
+    android:theme="@style/Amaaze.Toolbar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+</androidx.appcompat.widget.Toolbar>
